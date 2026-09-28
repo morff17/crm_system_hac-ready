@@ -1,0 +1,4 @@
+export default function DistributionDonut({ data, totalStudents }) {
+ const items=data?.length?data:[{name:'Нет данных',value:0}]; const total=items.reduce((s,x)=>s+x.value,0)||1;
+ return <div className="bg-white rounded-2xl border border-gray-100 p-6"><h3 className="font-semibold text-gray-800 mb-6">Распределение студентов по ИТ-направлениям</h3><div className="space-y-3">{items.map(x=><div key={x.name}><div className="flex justify-between text-sm mb-1"><span className="text-gray-600">{x.name}</span><span className="font-semibold">{x.value} ({Math.round(x.value/total*100)}%)</span></div><div className="h-2 bg-gray-100 rounded"><div className="h-2 bg-violet-400 rounded" style={{width:`${x.value/total*100}%`}}/></div></div>)}</div><div className="mt-5 text-sm text-gray-500">Всего студентов: <b className="text-gray-800">{totalStudents ?? total}</b></div></div>;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" identifier="rtk-crm-model">
+  <name xml:lang="ru">RTK IT School CRM</name>
+  <elements>
+    <element identifier="frontend" xsi:type="ApplicationComponent"><name xml:lang="ru">React Web UI</name></element>
+    <element identifier="backend" xsi:type="ApplicationComponent"><name xml:lang="ru">FastAPI CRM API</name></element>
+    <element identifier="keycloak" xsi:type="ApplicationComponent"><name xml:lang="ru">Keycloak</name></element>
+    <element identifier="postgres" xsi:type="TechnologyNode"><name xml:lang="ru">PostgreSQL</name></element>
+    <element identifier="redis" xsi:type="TechnologyNode"><name xml:lang="ru">Redis</name></element>
+    <element identifier="storage" xsi:type="TechnologyNode"><name xml:lang="ru">File volume</name></element>
+    <element identifier="lms" xsi:type="ApplicationComponent"><name xml:lang="ru">LMS</name></element>
+    <element identifier="website" xsi:type="ApplicationComponent"><name xml:lang="ru">Web-site/CMS</name></element>
+  </elements>
+  <relationships>
+    <relationship identifier="r1" source="frontend" target="backend" xsi:type="FlowRelationship"/>
+    <relationship identifier="r2" source="backend" target="keycloak" xsi:type="ServingRelationship"/>
+    <relationship identifier="r3" source="backend" target="postgres" xsi:type="AccessRelationship"/>
+    <relationship identifier="r4" source="backend" target="redis" xsi:type="AccessRelationship"/>
+    <relationship identifier="r5" source="backend" target="storage" xsi:type="AccessRelationship"/>
+    <relationship identifier="r6" source="lms" target="backend" xsi:type="FlowRelationship"/>
+    <relationship identifier="r7" source="website" target="backend" xsi:type="FlowRelationship"/>
+  </relationships>
+</model>

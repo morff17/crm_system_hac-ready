@@ -1,0 +1,24 @@
+{
+  "realm": "crm",
+  "enabled": true,
+  "registrationAllowed": false,
+  "roles": {"realm": [
+    {"name":"user"},{"name":"manager"},{"name":"admin"}
+  ]},
+  "clients": [{
+    "clientId": "crm-backend",
+    "name": "CRM Backend",
+    "enabled": true,
+    "clientAuthenticatorType": "client-secret",
+    "secret": "${CRM_CLIENT_SECRET}",
+    "directAccessGrantsEnabled": true,
+    "standardFlowEnabled": false,
+    "publicClient": false,
+    "protocol": "openid-connect"
+  }],
+  "users": [
+    {"username":"user","enabled":true,"firstName":"Анна","lastName":"Иванова","credentials":[{"type":"password","value":"${DEMO_USER_PASSWORD}","temporary":false}],"realmRoles":["user"]},
+    {"username":"manager","enabled":true,"firstName":"Руководитель","lastName":"CRM","credentials":[{"type":"password","value":"${DEMO_MANAGER_PASSWORD}","temporary":false}],"realmRoles":["user","manager"]},
+    {"username":"admin","enabled":true,"firstName":"Администратор","lastName":"CRM","credentials":[{"type":"password","value":"${DEMO_ADMIN_PASSWORD}","temporary":false}],"realmRoles":["user","manager","admin"]}
+  ]
+}
